@@ -31,5 +31,5 @@ class Auth:
         return None
 
 
-if __name__ == "__main__":
-    a = Auth()
+class BasicAuth(Auth):
+    pass
