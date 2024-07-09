@@ -24,12 +24,12 @@ class Auth:
         """authorization header check"""
         if request is None:
             return None
-        return request.headers.get('Authorization', None)
+        return request.headers.get("Authorization", None)
 
     def current_user(self, request=None) -> TypeVar("User"):
         """current user method"""
         return None
-    
-if __name__ == '__main__':
-    a = Auth()
 
+
+if __name__ == "__main__":
+    a = Auth()
