@@ -29,3 +29,5 @@ class Auth:
     def current_user(self, request=None) -> TypeVar("User"):
         """current user method"""
         return None
+if __name__ == '__main__':
+    a = Auth()
