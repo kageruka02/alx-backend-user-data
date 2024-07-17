@@ -11,13 +11,15 @@ import uuid
 class BasicAuth(Auth):
     """BasicAuth Class"""
 
-    def extract_base64_authorization_header(self, authorization_header: str) -> str:
+    def extract_base64_authorization_header(
+        self, authorization_header: str
+    ) -> str:
         """Returns the Base64 part of the Authorization header"""
         if not isinstance(authorization_header, str):
             return None
         index = authorization_header.find(" ")
         if index != -1 and "Basic " in authorization_header:
-            return authorization_header[index + 1 :]
+            return authorization_header[index + 1:]
         return None
 
     def decode_base64_authorization_header(
