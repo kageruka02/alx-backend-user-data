@@ -22,7 +22,7 @@ if getenv("AUTH_TYPE") == "basic_auth":
     from api.v1.auth.basic_auth import BasicAuth
 
     auth = BasicAuth()
-if getenv('AUTH_TYPE') == 'SessionAuth':
+if getenv('AUTH_TYPE') == 'sessionAuth':
     from api.v1.auth.session_auth import SessionAuth
     auth = SessionAuth()
 
