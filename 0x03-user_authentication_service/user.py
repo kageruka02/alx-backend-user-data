@@ -1,7 +1,8 @@
+#!/usr/bin/env python3
+"authentication service full one"
 from sqlalchemy import Integer, VARCHAR, Column, String
 from sqlalchemy.ext.declarative import declarative_base
 
-"authentication service full one"
 
 Base = declarative_base()
 
