@@ -1,10 +1,9 @@
 #!/usr/bin/env python3
-"""DB module
-"""
+"""DB module"""
 
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm import sessionmaker, scoped_session
 from sqlalchemy.orm.session import Session
 
 from user import Base, User
@@ -24,20 +23,12 @@ class DB:
     def _session(self) -> Session:
         """Memoized session object"""
         if self.__session is None:
-            DBSession = sessionmaker(bind=self._engine)
-            self.__session = DBSession()
+            session_factory = sessionmaker(bind=self._engine)
+            self.__session = scoped_session(session_factory)
         return self.__session
 
     def add_user(self, email: str, hashed_password: str) -> User:
-        """Add a new user to the database
-
-        Args:
-            email (str): The email address of the new user.
-            hashed_password (str): The hashed password of the new user.
-
-        Returns:
-            User: A User object representing the new user.
-        """
+        """Add a new user to the database"""
         new_user = User(email=email, hashed_password=hashed_password)
         self._session.add(new_user)
         self._session.commit()
