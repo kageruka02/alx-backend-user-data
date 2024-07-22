@@ -67,4 +67,5 @@ class DB:
             raise NoResultFound()
         except InvalidRequestError:
             raise InvalidRequestError()
+         # print("Type of user: {}".format(type(user)))
         return user
