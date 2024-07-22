@@ -97,4 +97,9 @@ class DB:
             if not hasattr(user, key):
                 raise ValueError(f"{key} does not exist")
             setattr(user, key, value)
-        session.commit()
+        try:
+            # Commit changes to the database
+            self._session.commit()
+        except InvalidRequestError:
+            # Raise error if an invalid request is made
+            raise ValueError("Invalid request")
