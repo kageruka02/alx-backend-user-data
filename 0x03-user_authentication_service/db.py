@@ -51,7 +51,7 @@ class DB:
             raise
         return new_user
 
-    def find_user_by(self, **kwargs: Dict[str, str]) -> None:
+    def find_user_by(self, **kwargs: Dict[str, str]) -> User:
         """Find a user by specified attributes.
         Raises:
             error: NoResultFound: When no results are found.
