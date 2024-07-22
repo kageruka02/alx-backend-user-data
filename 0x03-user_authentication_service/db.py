@@ -51,7 +51,7 @@ class DB:
         #     raise
         return new_user
 
-    def find_user_by(self, **kwargs: Dict[str, str]) -> User:
+    def find_user_by(self, **kwargs) -> User:
         """Find a user by specified attributes.
         Raises:
             error: NoResultFound: When no results are found.
@@ -67,5 +67,5 @@ class DB:
             raise NoResultFound()
         except InvalidRequestError:
             raise InvalidRequestError()
-         # print("Type of user: {}".format(type(user)))
+        # print("Type of user: {}".format(type(user)))
         return user
