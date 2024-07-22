@@ -42,13 +42,13 @@ class DB:
         """
         # Create new user
         new_user = User(email=email, hashed_password=hashed_password)
-        try:
-            self._session.add(new_user)
-            self._session.commit()
-        except Exception as e:
-            print(f"Error adding user to database: {e}")
-            self._session.rollback()
-            raise
+        # try:
+        self._session.add(new_user)
+        self._session.commit()
+        # except Exception as e:
+        #     print(f"Error adding user to database: {e}")
+        #     self._session.rollback()
+        #     raise
         return new_user
 
     def find_user_by(self, **kwargs: Dict[str, str]) -> User:
