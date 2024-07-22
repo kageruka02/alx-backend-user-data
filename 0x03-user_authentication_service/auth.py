@@ -4,7 +4,7 @@
 import bcrypt
 
 
-def _hash_password(password: str):
+def _hash_password(password: str) -> bytes:
     "hashing a password"
     password = password.encode()
     salt = bcrypt.gensalt()
