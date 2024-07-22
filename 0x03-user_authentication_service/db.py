@@ -85,7 +85,6 @@ class DB:
         Returns:
             None
         """
-        session = self._session
         try:
             user = self.find_user_by(id=user_id)
         except NoResultFound:
